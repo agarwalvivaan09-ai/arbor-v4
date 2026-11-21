@@ -176,21 +176,21 @@ ${actions(goTo("Open Overview", "overview"))}`
                     {
                         id: "guide-hfri", short: "HFRI score", title: `HFRI: how well ${family ? "your household" : "you"} could handle a shock`,
                         body: `
-<p>The Household Financial Resilience Index scores from 0 to 100 how well ${family ? "the household" : "you"} could absorb a job loss, a medical bill or an income cut while still paying for essentials. It combines four equally weighted parts:</p>
+<p>The Household Financial Resilience Index scores from 0 to 100 how well ${family ? "the household" : "you"} could absorb a job loss, a medical bill or an income cut while still paying for essentials. It combines four parts, weighted by how well each one predicted real financial trouble in U.S. household surveys:</p>
 ${defs([
-    ["Savings strength", "Do you spend less than you earn?"],
-    ["Debt sustainability", "How heavy are loans and EMIs compared with income?"],
-    ["Emergency coverage", "How many months of essential spending could cash cover?"],
-    ["Expense stability", "How predictable is spending month to month?"]
+    ["Savings strength (5%)", "Do you spend less than you earn?"],
+    ["Debt sustainability (30%)", "How heavy are loans and EMIs compared with income?"],
+    ["Emergency coverage (55%)", "How many months of essential spending could cash cover?"],
+    ["Expense stability (10%)", "How predictable is spending month to month?"]
 ])}
-<p>A score appears once there is income and at least two months of activity. Roughly: below 60 is very low, 65–70 is the transition zone where extra savings help most, and 75+ is very high.</p>
+<p>A score appears once there is income and at least two months of activity. Below 35 is high risk, 35–55 elevated risk, 55–70 moderate risk and 70+ low risk.</p>
 ${more("How Arbor calculates it", defs([
     ["Disposable income", "Income minus tax entries, averaged over your last 12 months."],
     ["Spending", "Expenses except tax. Loan payments and EMIs count as debt instead."],
     ["Debt", "40% debt-to-income + 60% repayments-to-income."],
     ["Liquid savings", "Total cash in all accounts. Investments are not counted."],
     ["Essential spending", "Fixed and variable expenses (all spending if none are tagged)."],
-    ["Bands", "Provisional, from a 1,000-household simulation in the research paper."]
+    ["Bands", "Set where the real chance of being badly behind on loan payments falls to twice the average, the average and half the average (U.S. Survey of Consumer Finances)."]
 ]))}
 ${actions(goTo("Open Resilience", "resilience"), link("HFRI calculator", HFRI_SITE.calculator), link("Research paper", HFRI_SITE.paper))}`
                     },

@@ -265,11 +265,10 @@ button.ws-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-md)
 .ring strong { position: relative; font-family: var(--font-serif); font-size: 27px; font-weight: 600; }
 .ring.lg { width: 136px; height: 136px; }
 .ring.lg strong { font-size: 34px; }
-.ring[data-band="very-low"], .band-very-low { --c: var(--band-very-low); --band: var(--band-very-low); }
-.ring[data-band="low"], .band-low { --c: var(--band-low); --band: var(--band-low); }
-.ring[data-band="transition"], .band-transition { --c: var(--band-transition); --band: var(--band-transition); }
-.ring[data-band="high"], .band-high { --c: var(--band-high); --band: var(--band-high); }
-.ring[data-band="very-high"], .band-very-high { --c: var(--band-very-high); --band: var(--band-very-high); }
+.ring[data-band="high-risk"], .band-high-risk { --c: var(--band-very-low); --band: var(--band-very-low); }
+.ring[data-band="elevated-risk"], .band-elevated-risk { --c: var(--band-low); --band: var(--band-low); }
+.ring[data-band="moderate-risk"], .band-moderate-risk { --c: var(--band-transition); --band: var(--band-transition); }
+.ring[data-band="low-risk"], .band-low-risk { --c: var(--band-very-high); --band: var(--band-very-high); }
 
 /* KPIs */
 .kpi-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(176px, 1fr)); gap: 12px; }
@@ -376,7 +375,7 @@ td .badge-scheduled { margin-left: 6px; }
 .formula { margin: 16px 0; padding: 12px 14px; border-radius: 10px; background: var(--ink); color: #e8eefc; font-family: var(--font-mono); font-size: 13.5px; overflow-x: auto; }
 .dim-list { display: grid; gap: 8px; margin: 0; padding: 0; list-style: none; color: var(--muted); }
 .dim-list strong { color: var(--ink); }
-.band-scale { display: grid; grid-template-columns: repeat(5, 1fr); gap: 6px; margin-bottom: 14px; }
+.band-scale { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; margin-bottom: 14px; }
 .band-scale div { padding: 12px 10px; border-top: 4px solid var(--band); border-radius: 8px; background: var(--surface-alt); }
 .band-scale strong, .band-scale span { display: block; }
 .band-scale strong { font-size: 13px; }
@@ -719,11 +718,10 @@ td .badge-scheduled { margin-left: 6px; }
 .fam-dim small { display: block; margin-top: 4px; color: var(--muted); font-size: 12px; }
 .bar { height: 6px; margin-top: 6px; border-radius: 99px; background: var(--paper); overflow: hidden; }
 .bar-fill { display: block; height: 100%; border-radius: inherit; background: var(--accent); }
-.bar-fill[data-band="very-low"], .pill[data-band="very-low"] { --b: var(--band-very-low); }
-.bar-fill[data-band="low"], .pill[data-band="low"] { --b: var(--band-low); }
-.bar-fill[data-band="transition"], .pill[data-band="transition"] { --b: var(--band-transition); }
-.bar-fill[data-band="high"], .pill[data-band="high"] { --b: var(--band-high); }
-.bar-fill[data-band="very-high"], .pill[data-band="very-high"] { --b: var(--band-very-high); }
+.bar-fill[data-band="high-risk"], .pill[data-band="high-risk"] { --b: var(--band-very-low); }
+.bar-fill[data-band="elevated-risk"], .pill[data-band="elevated-risk"] { --b: var(--band-low); }
+.bar-fill[data-band="moderate-risk"], .pill[data-band="moderate-risk"] { --b: var(--band-transition); }
+.bar-fill[data-band="low-risk"], .pill[data-band="low-risk"] { --b: var(--band-very-high); }
 .bar-fill[data-band] { background: var(--b); }
 .pill { display: inline-block; min-width: 44px; padding: 3px 8px; border-radius: 99px; background: color-mix(in srgb, var(--b, var(--accent)) 14%, transparent); color: var(--b, var(--accent)); font-weight: 700; font-size: 12.5px; text-align: center; }
 .fam-inputs { display: flex; flex-wrap: wrap; gap: 6px 18px; margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--line); color: var(--muted); font-size: 12.5px; }

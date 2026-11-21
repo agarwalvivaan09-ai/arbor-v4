@@ -77,7 +77,7 @@ function renderCalc() {
     scoreEl.textContent = r.total.toFixed(1);
     ring.style.setProperty("--v", r.total.toFixed(1));
     ring.dataset.band = r.band.key;
-    bandEl.textContent = `${r.band.label} resilience`;
+    bandEl.textContent = r.band.label;
     textEl.textContent = r.band.text;
 
     const dims = [

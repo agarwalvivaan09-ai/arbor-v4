@@ -808,25 +808,24 @@ ${renderHFRIPanel(hfri)}
 <div class="grid-2">
     <section class="card prose-card">
         <div class="card-head"><h2>What HFRI measures</h2></div>
-        <p>The Household Financial Resilience Index scores how well a household could absorb a financial shock while still meeting essential obligations. It combines four equally weighted dimensions, each scored 0–100 with calibrated functions from Vivaan Agarwal's research.</p>
-        <div class="formula">HFRI = 0.25·S + 0.25·D + 0.25·E + 0.25·X</div>
+        <p>The Household Financial Resilience Index scores how well a household could absorb a financial shock while still meeting essential obligations. It combines four dimensions, each scored 0–100 with calibrated functions from Vivaan Agarwal's research. The weights were chosen by testing the index on more than 12,000 real U.S. families.</p>
+        <div class="formula">HFRI = 0.05·S + 0.30·D + 0.55·E + 0.10·X</div>
         <ul class="dim-list">
-            <li><strong>Savings Strength</strong> · savings rate (income − spending) ÷ income</li>
-            <li><strong>Debt Sustainability</strong> · 40% debt-to-income + 60% repayments-to-income</li>
-            <li><strong>Emergency Coverage</strong> · liquid cash ÷ monthly essential spending</li>
-            <li><strong>Expense Stability</strong> · variation of monthly spending (CV)</li>
+            <li><strong>Savings Strength (5%)</strong> · savings rate (income − spending) ÷ income</li>
+            <li><strong>Debt Sustainability (30%)</strong> · 40% debt-to-income + 60% repayments-to-income</li>
+            <li><strong>Emergency Coverage (55%)</strong> · liquid cash ÷ monthly essential spending</li>
+            <li><strong>Expense Stability (10%)</strong> · variation of monthly spending (CV)</li>
         </ul>
     </section>
     <section class="card prose-card">
         <div class="card-head"><h2>Score bands</h2></div>
         <div class="band-scale">
-            <div class="band-very-low"><strong>&lt; 60</strong><span>Very low</span></div>
-            <div class="band-low"><strong>60–65</strong><span>Low</span></div>
-            <div class="band-transition"><strong>65–70</strong><span>Transition</span></div>
-            <div class="band-high"><strong>70–75</strong><span>High</span></div>
-            <div class="band-very-high"><strong>75+</strong><span>Very high</span></div>
+            <div class="band-high-risk"><strong>0–35</strong><span>High risk</span></div>
+            <div class="band-elevated-risk"><strong>35–55</strong><span>Elevated risk</span></div>
+            <div class="band-moderate-risk"><strong>55–70</strong><span>Moderate risk</span></div>
+            <div class="band-low-risk"><strong>70–100</strong><span>Low risk</span></div>
         </div>
-        <p class="small muted">Bands are provisional. They come from the paper's 1,000-household simulation, where shock survival rose sharply around 65–70.</p>
+        <p class="small muted">Bands come from real outcomes. Among U.S. families in 2025, the share two months or more behind on a loan payment was 20.8% in the High-risk band, 12.6% in Elevated, 7.2% in Moderate and 1.3% in Low risk (average 8.2%). The same pattern held for families followed through the 2008 crisis.</p>
         <div class="btn-row">
             <a class="btn btn-primary btn-sm" href="${HFRI_SITE.calculator}" target="_blank" rel="noopener">HFRI calculator ↗</a>
             <a class="btn btn-ghost btn-sm" href="${HFRI_SITE.research}" target="_blank" rel="noopener">Read the research ↗</a>

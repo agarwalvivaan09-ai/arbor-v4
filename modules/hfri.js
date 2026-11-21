@@ -1,10 +1,13 @@
 // ==========================================================
 // HOUSEHOLD FINANCIAL RESILIENCE INDEX (HFRI)
-// Vivaan Agarwal — formulas, constants and bands are taken
-// directly from the paper and the official HFRI calculator.
+// Vivaan Agarwal — formulas, constants, weights and bands are taken
+// directly from the revised paper and the official HFRI calculator.
 //
-//   HFRI = 0.25 S + 0.25 D + 0.25 E + 0.25 X
+//   HFRI = 0.05 S + 0.30 D + 0.55 E + 0.10 X
 //   D    = 0.40 D_DTI + 0.60 D_DSTI
+//
+// The weights and bands were chosen and tested on real U.S. families
+// (Survey of Consumer Finances 2025 and the 2007-09 SCF Panel).
 // ==========================================================
 
 import { HFRI_SITE } from "./site.js";
@@ -37,13 +40,20 @@ export const scoreEC = ec =>
 export const scoreCV = cv =>
     100 * Math.exp(-3.13957 * Math.pow(Math.max(cv, 0), 1.30837));
 
-// Provisional bands from the paper's Phase II shock simulation.
+export const HFRI_WEIGHTS = { S: 0.05, D: 0.30, E: 0.55, X: 0.10 };
+
+// Bands from the revised paper. Cut-offs sit where the chance of being two months
+// or more behind on a loan payment falls to twice the U.S. average (8.2%), the
+// average, and half the average. late2025 is that rate in each band (SCF 2025).
 export const HFRI_BANDS = [
-    { max: 60, key: "very-low", label: "Very low", text: "Very low simulated shock-absorption capacity." },
-    { max: 65, key: "low", label: "Low", text: "Low simulated shock-absorption capacity." },
-    { max: 70, key: "transition", label: "Transition zone", text: "Simulated shock survival rises steeply here. Small gains in liquidity matter most." },
-    { max: 75, key: "high", label: "High", text: "High simulated shock-absorption capacity." },
-    { max: Infinity, key: "very-high", label: "Very high", text: "Very high simulated shock-absorption capacity." }
+    { from: 0, max: 35, key: "high-risk", label: "High risk", late2025: 20.8,
+      text: "More than twice as likely as the average family to be badly behind on loan payments." },
+    { from: 35, max: 55, key: "elevated-risk", label: "Elevated risk", late2025: 12.6,
+      text: "An above-average chance of being badly behind on loan payments." },
+    { from: 55, max: 70, key: "moderate-risk", label: "Moderate risk", late2025: 7.2,
+      text: "Close to the average chance of being badly behind on loan payments." },
+    { from: 70, max: Infinity, key: "low-risk", label: "Low risk", late2025: 1.3,
+      text: "Well under half the average chance of being badly behind on loan payments." }
 ];
 
 export const hfriBand = score => HFRI_BANDS.find(b => score < b.max);
@@ -67,7 +77,8 @@ export function computeHFRI(inp) {
     const E = scoreEC(ec);
     const X = scoreCV(cv);
 
-    const total = 0.25 * S + 0.25 * D + 0.25 * E + 0.25 * X;
+    const w = HFRI_WEIGHTS;
+    const total = w.S * S + w.D * D + w.E * E + w.X * X;
 
     return {
         total,

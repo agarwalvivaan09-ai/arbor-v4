@@ -200,7 +200,7 @@ function hfriCard(h, { title = "Family HFRI", note = "" } = {}) {
         <div class="ring lg" data-band="${h.band.key}" style="--v:${h.total.toFixed(1)}"><strong>${h.total.toFixed(1)}</strong></div>
         <div>
             <div class="eyebrow-sm">${title}</div>
-            <h2>${escapeHTML(h.band.label)} resilience</h2>
+            <h2>${escapeHTML(h.band.label)}</h2>
             <p class="muted">How well the household could absorb a shock, such as a job loss or a large bill, while still paying for essentials. ${note}</p>
         </div>
     </div>

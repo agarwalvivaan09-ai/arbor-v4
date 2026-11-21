@@ -23,7 +23,7 @@ export const CREATOR = {
 export const HFRI_SITE = {
     calculator: "https://agarwalvivaan09-ai.github.io/HFRI/",
     research: `${WEBSITE}research-hfri.html`,
-    paper: `${WEBSITE}Household_Financial_Resilience_Index_Vivaan_Agarwal.pdf`,
+    paper: "https://agarwalvivaan09-ai.github.io/HFRI/Household_Financial_Resilience_Index_Version_2.pdf",
     source: "https://github.com/agarwalvivaan09-ai/HFRI"
 };
 

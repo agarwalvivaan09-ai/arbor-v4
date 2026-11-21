@@ -82,4 +82,4 @@ Run locally with any static server (e.g. VS Code Live Server) and open `index.ht
 Arbor and the HFRI are created by **Vivaan Agarwal**, La Martiniere for Boys, Kolkata.
 [LinkedIn](https://www.linkedin.com/in/vivaan-agarwal-65663b39a/) · [GitHub](https://github.com/agarwalvivaan09-ai)
 
-Arbor is an educational tool and does not provide financial advice. HFRI bands are provisional.
+Arbor is an educational tool and does not provide financial advice. HFRI weights and bands come from U.S. household survey data and have not yet been tested on Indian households.
